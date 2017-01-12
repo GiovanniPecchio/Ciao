@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Conflict:</strong>
+  <%= @submission.conflict %>
+</p>
+
+<p>
+  <strong>Computer:</strong>
+  <%= @submission.computer %>
+</p>
+
+<p>
+  <strong>Extra time:</strong>
+  <%= @submission.extra_time %>
+</p>
+
+<p>
+  <strong>Am pm:</strong>
+  <%= @submission.am_pm %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @submission.student.name %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @submission.teacher.name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @submission.subject.name %>
+</p>
+
+<%= link_to 'Edit', "#" %> |
+<%= link_to 'Back', "#" %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  conflict: MyString
+  computer: MyString
+  extra_time: 1
+  am_pm: MyString
+
+two:
+  conflict: MyString
+  computer: MyString
+  extra_time: 1
+  am_pm: MyString

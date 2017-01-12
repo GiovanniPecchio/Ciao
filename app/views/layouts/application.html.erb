@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resorce Exam System</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+	<%= render 'layouts/header' %>
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-info") %>
+  <% end %>
+	<%= yield %>
+</div>
+  <!--<%= render 'layouts/footer' %>-->
+</body>
+</html>

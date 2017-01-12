@@ -1,0 +1,62 @@
+<%= form_for([@form, @submission]) do |f| %>
+  <% if @submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+        <% @submission.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <div class="col-md-4">
+    <div class="field">
+      <%= f.label :student %><br />
+      <%= collection_select( :submission, :student_id, Student.all, :id, :name, {required: :true}) %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :conflict %><br />
+      <%= f.radio_button :conflict, :Yes, required: :true %> Yes<br>
+      <%= f.radio_button :conflict, :No, required: :true %> No
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :computer %><br />
+      <%= f.radio_button :computer, :Yes, required: :true %> Yes<br>
+      <%= f.radio_button :computer, :No, required: :true %> No
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :am_pm %><br />
+      <%= f.radio_button :am_pm, :Am, required: :true %> Am<br>
+      <%= f.radio_button :am_pm, :Pm, required: :true %> Pm
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :extra_time %><br />
+      <%= f.radio_button :extra_time, 25, required: :true %> 25%<br>
+      <%= f.radio_button :extra_time, 50, required: :true %> 50%
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :teacher %><br />
+      <%= collection_select( :submission, :teacher_id, Teacher.all, :id, :name, {required: :true}) %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :subject %><br />
+      <%= collection_select( :submission, :subject_id, Subject.all, :id, :name, {required: :true}) %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+    <%= link_to 'Back', form_path(@form) %>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <%= link_to (image_tag @form.image.url(:medium), class: 'image'), @form %>
+  </div>
+<% end %>

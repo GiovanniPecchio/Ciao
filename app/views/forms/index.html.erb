@@ -1,0 +1,24 @@
+<h1>Listing Forms</h1>
+
+<div class="row">
+  <% @forms.each do |form| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to (image_tag form.image.url(:medium), class: 'image'), form %>
+        <p>
+          <strong>Name of the Exam:</strong>
+          <%= form.title %>
+        </p>
+        <p>
+          <% if form.user == current_user %>
+            <%= link_to 'Edit', edit_form_path(form) %> |
+            <%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% if user_signed_in? %>
+  <%= link_to 'New Form', new_form_path %>
+<% end %>
