@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
-
+ruby "2.3.1" # specify ruby version
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+# Use pg for heroku databse
+gem 'pg'
+# Heroku pre-req
+gem 'rails_12factor', group: :production # don't use locally, only on heroku
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -53,13 +57,4 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
 end
