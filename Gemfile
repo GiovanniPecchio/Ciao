@@ -3,8 +3,10 @@ ruby "2.3.1" # specify ruby version
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+
+gem 'sqlite3', group: :development
 # Use pg for heroku databse
-gem 'pg'
+gem 'pg', group: :production
 # Heroku pre-req
 gem 'rails_12factor', group: :production # don't use locally, only on heroku
 # Use SCSS for stylesheets
@@ -36,6 +38,8 @@ gem 'paperclip', '~> 5.1'
 gem 'prawn'
 
 gem 'prawn-table'
+
+gem 'rails-erd', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
